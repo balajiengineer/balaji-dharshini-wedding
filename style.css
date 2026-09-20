@@ -1,0 +1,918 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --cream: #fff8e8;
+  --gold: #d6a84f;
+  --dark-gold: #9a6820;
+  --green: #123c32;
+  --maroon: #681f2b;
+  --white: #fffdf6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--green);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 6%;
+
+  background: rgba(15, 30, 25, 0.88);
+  backdrop-filter: blur(12px);
+
+  z-index: 1000;
+
+  border-bottom: 1px solid rgba(214, 168, 79, 0.4);
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  color: white;
+  font-size: 25px;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #fff8e8;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 120px 20px 70px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center 35%,
+      rgba(214,168,79,0.35),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #0b2d26,
+      #153f32,
+      #071d19
+    );
+}
+
+/* Golden light behind Murugan */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,215,120,0.35),
+      transparent 65%
+    );
+
+  animation: divineGlow 5s ease-in-out infinite;
+}
+
+/* =========================================
+   MURUGAN
+========================================= */
+
+.murugan-container {
+  position: relative;
+
+  width: 300px;
+  height: 320px;
+
+  z-index: 5;
+}
+
+.murugan {
+  position: relative;
+
+  width: 240px;
+  height: 300px;
+
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: 130px 130px 25px 25px;
+
+  border: 4px solid rgba(214,168,79,0.75);
+
+  box-shadow:
+    0 0 30px rgba(255,205,80,0.45),
+    0 20px 50px rgba(0,0,0,0.35);
+
+  animation: muruganFloat 5s ease-in-out infinite;
+}
+
+.murugan-glow {
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  left: 10px;
+  top: 10px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,220,120,0.55),
+      transparent 65%
+    );
+
+  filter: blur(15px);
+
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* =========================================
+   PEACOCK
+========================================= */
+
+.hero-peacock {
+  position: absolute;
+
+  width: 240px;
+  height: 350px;
+
+  object-fit: cover;
+  object-position: center top;
+
+  right: 7%;
+  bottom: 5%;
+
+  border-radius: 120px 120px 25px 25px;
+
+  opacity: 0.95;
+
+  filter:
+    drop-shadow(0 15px 20px rgba(0,0,0,0.4));
+
+  z-index: 4;
+
+  animation: peacockMove 6s ease-in-out infinite;
+}
+
+/* =========================================
+   FEATHERS
+========================================= */
+
+.floating-feather {
+  position: absolute;
+
+  width: 150px;
+  height: 210px;
+
+  object-fit: cover;
+
+  opacity: 0.6;
+
+  border-radius: 100px;
+
+  z-index: 2;
+}
+
+.feather1 {
+  left: 4%;
+  top: 20%;
+
+  animation:
+    featherFloat 6s ease-in-out infinite,
+    featherRotate 9s linear infinite;
+}
+
+.feather2 {
+  right: 2%;
+  top: 18%;
+
+  animation:
+    featherFloat 7s ease-in-out infinite reverse,
+    featherRotate 11s linear infinite reverse;
+}
+
+/* =========================================
+   TEXT
+========================================= */
+
+.devotional {
+  margin-top: 10px;
+
+  letter-spacing: 6px;
+
+  color: var(--gold);
+
+  font-size: 14px;
+
+  z-index: 5;
+}
+
+.blessing {
+  color: #f4e5c3;
+
+  font-style: italic;
+
+  margin: 8px;
+
+  z-index: 5;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(55px, 9vw, 105px);
+
+  line-height: 1;
+
+  color: white;
+
+  margin: 12px 0;
+
+  z-index: 5;
+
+  text-shadow:
+    0 4px 20px rgba(0,0,0,0.35);
+}
+
+.hero h1 span {
+  color: var(--gold);
+
+  font-weight: 400;
+}
+
+.tagline {
+  color: #e8c982;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  z-index: 5;
+}
+
+.invitation {
+  color: #f7edda;
+
+  line-height: 1.5;
+
+  margin: 20px 0;
+
+  z-index: 5;
+}
+
+.vel {
+  font-size: 48px;
+
+  color: var(--gold);
+
+  text-shadow:
+    0 0 20px rgba(255,210,100,0.8);
+
+  animation: velGlow 2.5s ease-in-out infinite;
+
+  z-index: 5;
+}
+
+.discover {
+  color: white;
+
+  text-decoration: none;
+
+  border: 1px solid var(--gold);
+
+  padding: 12px 25px;
+
+  border-radius: 30px;
+
+  margin-top: 15px;
+
+  transition: 0.4s;
+
+  z-index: 5;
+}
+
+.discover:hover {
+  background: var(--gold);
+  color: var(--green);
+}
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-section {
+  text-align: center;
+
+  padding: 100px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff8e8,
+      #f2dfb5
+    );
+}
+
+.small-title {
+  color: var(--dark-gold);
+
+  letter-spacing: 5px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+.countdown-section h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(35px, 5vw, 55px);
+
+  margin: 10px 0 40px;
+}
+
+.countdown {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+
+  max-width: 750px;
+
+  margin: auto;
+}
+
+.countdown div {
+  background: rgba(255,255,255,0.65);
+
+  border: 1px solid rgba(154,104,32,0.4);
+
+  border-radius: 20px;
+
+  padding: 25px 10px;
+
+  box-shadow:
+    0 10px 30px rgba(80,50,10,0.08);
+}
+
+.countdown strong {
+  display: block;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+
+  color: var(--maroon);
+}
+
+.countdown span {
+  color: #806b51;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  font-size: 13px;
+}
+
+/* =========================================
+   EVENTS
+========================================= */
+
+.event-section {
+  max-width: 1150px;
+
+  margin: auto;
+
+  padding: 100px 25px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 30px;
+}
+
+.event-card {
+  text-align: center;
+
+  background:
+    rgba(255,255,255,0.7);
+
+  border:
+
+    1px solid rgba(154,104,32,0.45);
+
+  border-radius: 25px;
+
+  padding: 45px 30px;
+
+  box-shadow:
+    0 20px 50px rgba(70,40,10,0.08);
+
+  transition: 0.5s;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow:
+    0 30px 60px rgba(70,40,10,0.15);
+}
+
+.event-icon {
+  font-size: 50px;
+
+  margin-bottom: 10px;
+}
+
+.event-card h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 38px;
+
+  margin: 10px 0 25px;
+}
+
+.event-date {
+  color: var(--maroon);
+
+  font-size: 24px;
+
+  font-weight: 600;
+}
+
+.event-time {
+  color: var(--dark-gold);
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  margin: 8px;
+}
+
+.event-card h3 {
+  font-family: "Playfair Display", serif;
+
+  margin-top: 25px;
+
+  font-size: 24px;
+}
+
+.qr {
+  width: 155px;
+  height: 155px;
+
+  object-fit: contain;
+
+  background: white;
+
+  padding: 8px;
+
+  border-radius: 10px;
+
+  margin-top: 25px;
+
+  border: 1px solid #ddd;
+}
+
+.qr-text {
+  font-size: 15px;
+
+  font-style: italic;
+
+  color: #806b51;
+}
+
+/* =========================================
+   MURUGAN BLESSING
+========================================= */
+
+.murugan-section {
+  position: relative;
+
+  text-align: center;
+
+  max-width: 1000px;
+
+  margin: 40px auto;
+
+  padding: 80px 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #123c32,
+      #1c4c3e
+    );
+
+  color: white;
+
+  border-radius: 35px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 70px rgba(10,50,40,0.2);
+}
+
+.feather-banner {
+  width: 100%;
+
+  max-width: 700px;
+
+  height: 150px;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 25px;
+
+  opacity: 0.75;
+
+  margin-bottom: 35px;
+}
+
+.murugan-section h2 {
+  font-family: "Playfair Display", serif;
+
+  color: #ffe5a5;
+
+  font-size: clamp(35px, 5vw, 55px);
+
+  margin: 15px;
+}
+
+.blessing-text {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #f5e8ce;
+
+  font-size: 22px;
+
+  line-height: 1.6;
+}
+
+.big-vel {
+  font-size: 60px;
+
+  color: var(--gold);
+
+  margin-top: 30px;
+
+  animation: velGlow 2.5s infinite;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  text-align: center;
+
+  padding: 60px 20px;
+
+  background: #09241e;
+
+  color: #fff3d5;
+}
+
+footer h2 {
+  color: var(--gold);
+
+  font-family: "Playfair Display", serif;
+
+  margin: 12px;
+}
+
+/* =========================================
+   JASMINE PETALS
+========================================= */
+
+.petals span {
+  position: fixed;
+
+  top: -50px;
+
+  z-index: 999;
+
+  pointer-events: none;
+
+  font-size: 20px;
+
+  animation:
+    fallingPetal linear infinite;
+}
+
+.petals span:nth-child(1) {
+  left: 10%;
+  animation-duration: 10s;
+}
+
+.petals span:nth-child(2) {
+  left: 25%;
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+
+.petals span:nth-child(3) {
+  left: 42%;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+.petals span:nth-child(4) {
+  left: 63%;
+  animation-duration: 12s;
+  animation-delay: 1s;
+}
+
+.petals span:nth-child(5) {
+  left: 80%;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+.petals span:nth-child(6) {
+  left: 92%;
+  animation-duration: 14s;
+  animation-delay: 5s;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes divineGlow {
+
+  0%,100% {
+    transform: scale(1);
+
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.15);
+
+    opacity: 1;
+  }
+}
+
+@keyframes muruganFloat {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,100% {
+    opacity: 0.5;
+
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.1);
+  }
+}
+
+@keyframes peacockMove {
+
+  0%,100% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(-18px)
+      rotate(2deg);
+  }
+}
+
+@keyframes featherFloat {
+
+  0%,100% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(-25px)
+      rotate(8deg);
+  }
+}
+
+@keyframes featherRotate {
+
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes velGlow {
+
+  0%,100% {
+    text-shadow:
+      0 0 5px rgba(255,200,80,0.4);
+  }
+
+  50% {
+    text-shadow:
+      0 0 30px rgba(255,210,90,1);
+  }
+}
+
+@keyframes fallingPetal {
+
+  0% {
+    transform:
+      translateY(-60px)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(110vh)
+      rotate(360deg);
+
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+  nav {
+    height: 60px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .logo {
+    margin: auto;
+  }
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .murugan-container {
+    width: 230px;
+    height: 250px;
+  }
+
+  .murugan {
+    width: 190px;
+    height: 235px;
+  }
+
+  .murugan-glow {
+    width: 230px;
+    height: 230px;
+  }
+
+  .hero-peacock {
+    width: 130px;
+    height: 210px;
+
+    right: -15px;
+    bottom: 10%;
+  }
+
+  .floating-feather {
+    width: 80px;
+    height: 120px;
+  }
+
+  .feather1 {
+    left: -20px;
+  }
+
+  .feather2 {
+    right: -20px;
+  }
+
+  .countdown {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .countdown strong {
+    font-size: 34px;
+  }
+
+  .event-section {
+    grid-template-columns: 1fr;
+
+    padding: 70px 18px;
+  }
+
+  .event-card {
+    padding: 35px 18px;
+  }
+
+  .murugan-section {
+    margin: 20px 12px;
+
+    border-radius: 25px;
+  }
+
+}
