@@ -1,0 +1,169 @@
+# Balaji & Dharshini — Wedding 2026
+
+A traditional South Indian wedding invitation website.
+
+## Publish with GitHub Pages
+1. Upload all files and the `assets` folder to the repository.
+2. Open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select `main` and `/ (root)`.
+5. Click **Save**.
+6. GitHub will provide the live website URL.
+
+Wedding: 20 November 2026  
+Reception: 23 November 2026
+
+const weddingDate = new Date("2026-11-20T06:30:00+05:30").getTime();
+
+function updateCountdown(){
+  const now = Date.now();
+  let diff = weddingDate - now;
+  if(diff < 0) diff = 0;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById("days").textContent = d;
+  document.getElementById("hours").textContent = String(h).padStart(2,"0");
+  document.getElementById("minutes").textContent = String(m).padStart(2,"0");
+  document.getElementById("seconds").textContent = String(s).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --cream:#fbf3df; --paper:#fffaf0; --gold:#b27a28; --deep:#173d32;
+  --maroon:#681f2b; --muted:#725e4b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--deep);font-family:"Cormorant Garamond",serif;font-size:19px}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:radial-gradient(#b27a28 0.7px,transparent .7px);background-size:18px 18px}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 22px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 25%,#fffdf5 0,#fbf3df 55%,#ead8ae 100%)}
+.hero:after{content:"";position:absolute;inset:18px;border:1px solid rgba(178,122,40,.45);border-radius:22px;pointer-events:none}
+.mandala{position:absolute;width:540px;height:540px;border:1px solid rgba(178,122,40,.18);border-radius:50%;box-shadow:0 0 0 35px rgba(178,122,40,.035),0 0 0 70px rgba(178,122,40,.025)}
+.murugan{font-size:88px;z-index:1;filter:drop-shadow(0 5px 5px rgba(80,45,10,.15))}
+.peacock{position:absolute;right:7%;top:18%;font-size:72px;transform:rotate(-8deg);animation:float 4s ease-in-out infinite}
+.eyebrow,.section-kicker{letter-spacing:5px;text-transform:uppercase;font-size:13px;color:var(--gold);font-weight:700}
+.blessing{font-style:italic;color:var(--muted);margin:8px}
+h1{font-family:"Playfair Display",serif;font-size:clamp(52px,10vw,110px);line-height:.95;margin:10px 0;color:var(--deep)}
+h1 span{color:var(--gold);font-weight:400}
+.subtitle{letter-spacing:4px;color:var(--maroon);text-transform:uppercase}
+.vel{font-size:38px;color:var(--gold);margin:18px}
+.invite{max-width:620px;line-height:1.45;color:var(--muted)}
+.scroll{margin-top:25px;color:var(--maroon);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:5px}
+section{padding:90px 22px;max-width:1100px;margin:auto}
+.countdown-section{text-align:center}
+h2{font-family:"Playfair Display",serif;font-size:clamp(32px,5vw,54px);margin:8px 0 30px;color:var(--deep)}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;max-width:700px;margin:auto}
+.countdown div{padding:22px 8px;border:1px solid rgba(178,122,40,.45);background:rgba(255,250,240,.7);border-radius:15px}
+.countdown strong{display:block;font-family:"Playfair Display",serif;font-size:42px;color:var(--maroon)}
+.countdown span{font-size:14px;text-transform:uppercase;letter-spacing:2px;color:var(--muted)}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{text-align:center;padding:45px 30px;border:1px solid rgba(178,122,40,.45);border-radius:24px;background:rgba(255,250,240,.78);box-shadow:0 12px 35px rgba(91,58,18,.07)}
+.icon{font-size:48px}.date{font-size:25px;color:var(--maroon);font-weight:600}.time{font-size:24px;color:var(--gold);font-weight:700}
+.card h3{font-family:"Playfair Display",serif;font-size:25px;margin:25px 0 5px}.venue{font-weight:700;margin-top:22px}
+.qr{width:150px;height:150px;object-fit:contain;margin-top:25px;background:#fff;padding:8px;border-radius:10px}
+.qr-label{font-size:14px;color:var(--muted);font-style:italic}
+.murugan-section{text-align:center;max-width:900px;background:linear-gradient(180deg,transparent,rgba(178,122,40,.08),transparent);border-radius:40px}
+.feather{font-size:80px}.murugan-section p:not(.section-kicker){max-width:650px;margin:15px auto;line-height:1.6;color:var(--muted)}
+.vel-large{font-size:55px;color:var(--gold);margin-top:25px}
+.story{text-align:center;max-width:800px}.story p:last-child{color:var(--muted);font-size:22px;line-height:1.6}
+footer{text-align:center;padding:55px 20px 70px;background:var(--deep);color:var(--cream);font-size:20px}footer strong{display:block;font-family:"Playfair Display",serif;font-size:25px;margin:12px}
+@keyframes float{50%{transform:translateY(-12px) rotate(-4deg)}}
+@media(max-width:720px){
+  .hero{min-height:92vh}.peacock{right:4%;top:10%;font-size:48px}.murugan{font-size:65px}
+  .details{grid-template-columns:1fr}.countdown{gap:7px}.countdown strong{font-size:30px}.countdown div{padding:15px 4px}
+  section{padding:65px 18px}.card{padding:32px 18px}
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wedding invitation of T. Balaji Jegan Maheshwaran & Deva Dharshini">
+  <title>Balaji & Dharshini | Wedding 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="mandala"></div>
+    <div class="murugan">🪷</div>
+    <div class="peacock">🦚</div>
+    <p class="eyebrow">|| Om Saravanabhava ||</p>
+    <p class="blessing">With the blessings of Lord Murugan</p>
+    <h1>Balaji <span>&</span> Dharshini</h1>
+    <p class="subtitle">Two hearts · One journey · Forever</p>
+    <div class="vel">⚔</div>
+    <p class="invite">Together with our families, we cordially invite you to celebrate our wedding.</p>
+    <a class="scroll" href="#wedding">Discover our day ↓</a>
+  </header>
+
+  <main>
+    <section class="countdown-section">
+      <p class="section-kicker">THE BIG DAY</p>
+      <h2>Counting every moment</h2>
+      <div id="countdown" class="countdown">
+        <div><strong id="days">--</strong><span>Days</span></div>
+        <div><strong id="hours">--</strong><span>Hours</span></div>
+        <div><strong id="minutes">--</strong><span>Minutes</span></div>
+        <div><strong id="seconds">--</strong><span>Seconds</span></div>
+      </div>
+    </section>
+
+    <section id="wedding" class="details">
+      <div class="card">
+        <div class="icon">🛕</div>
+        <p class="section-kicker">THE WEDDING</p>
+        <h2>Wedding Ceremony</h2>
+        <p class="date">Friday, 20th November 2026</p>
+        <p class="time">6:30 AM – 7:32 AM</p>
+        <h3>Sri Kamanatha Eswarar Temple</h3>
+        <p>Aragalur – Thalaivasal Road<br>Aragalur, Tamil Nadu – 636101</p>
+        <p class="venue">Kongu Thirumana Mandapam · Thalaivasal</p>
+        <img class="qr" src="assets/wedding-qr.png" alt="QR code for wedding location">
+        <p class="qr-label">Scan for wedding directions</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌸</div>
+        <p class="section-kicker">THE CELEBRATION</p>
+        <h2>Reception</h2>
+        <p class="date">Monday, 23rd November 2026</p>
+        <p class="time">11:00 AM onwards</p>
+        <h3>Isha Mahal</h3>
+        <p>Peyanvilai, Kayalpattinam<br>Tamil Nadu – 628202</p>
+        <img class="qr" src="assets/reception-qr.png" alt="QR code for reception location">
+        <p class="qr-label">Scan for reception directions</p>
+      </div>
+    </section>
+
+    <section class="murugan-section">
+      <div class="feather">🦚</div>
+      <p class="section-kicker">A BLESSING FOR OUR JOURNEY</p>
+      <h2>Vel guides our path.<br>Love unites our lives.</h2>
+      <p>May Lord Murugan bless our new beginning with love, peace, prosperity and togetherness.</p>
+      <div class="vel-large">⚔</div>
+    </section>
+
+    <section class="story">
+      <p class="section-kicker">A NEW CHAPTER</p>
+      <h2>Two families · One blessing · A lifetime together</h2>
+      <p>We would be honoured to have your presence and blessings as we begin this beautiful chapter together.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>With love,</p>
+    <strong>T. Balaji Jegan Maheshwaran & Deva Dharshini</strong>
+    <p>🦚 || Vel Muruga || 🦚</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
