@@ -908,7 +908,65 @@ footer h2 {
   .event-card {
     padding: 35px 18px;
   }
+/* Golden particles */
 
+.gold-particle {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #e5bd68;
+
+  box-shadow:
+    0 0 8px #e5bd68;
+
+  animation:
+    particleFloat ease-in-out infinite;
+}
+
+
+/* Scroll reveal */
+
+.reveal {
+  opacity: 0;
+
+  transform:
+    translateY(45px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+@keyframes particleFloat {
+
+  0%,100% {
+    transform:
+      translateY(0)
+      scale(0.5);
+
+    opacity: 0.2;
+  }
+
+  50% {
+    transform:
+      translateY(-35px)
+      scale(1.2);
+
+    opacity: 1;
+  }
+}
   .murugan-section {
     margin: 20px 12px;
 
